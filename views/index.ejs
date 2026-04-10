@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Continue to Site</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-zinc-950 text-white min-h-screen flex items-center justify-center">
+  <div class="max-w-md w-full bg-zinc-900 p-8 rounded-2xl shadow-2xl">
+    <h1 class="text-3xl font-bold text-center mb-2">One last step</h1>
+    <p class="text-zinc-400 text-center mb-8">Enter your email to continue</p>
+
+    <% if (typeof error !== 'undefined') { %>
+      <p class="text-red-500 text-center mb-4"><%= error %></p>
+    <% } %>
+
+    <form action="/send-otp" method="POST">
+      <input type="email" name="email" 
+             class="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-4 text-lg focus:outline-none focus:border-white"
+             placeholder="your@email.com" required>
+
+      <button type="submit"
+              class="mt-6 w-full bg-white text-black font-semibold py-4 rounded-xl hover:bg-zinc-200 transition">
+        Send OTP
+      </button>
+    </form>
+  </div>
+</body>
+</html>

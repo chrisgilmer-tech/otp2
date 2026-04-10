@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enter OTP</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-zinc-950 text-white min-h-screen flex items-center justify-center">
+  <div class="max-w-md w-full bg-zinc-900 p-8 rounded-2xl shadow-2xl">
+    <h1 class="text-3xl font-bold text-center mb-2">Check your email</h1>
+    <p class="text-zinc-400 text-center mb-2">We sent a 6-digit code to</p>
+    <p class="text-center text-white font-medium mb-8"><%= email %></p>
+
+    <% if (typeof error !== 'undefined') { %>
+      <p class="text-red-500 text-center mb-4"><%= error %></p>
+    <% } %>
+
+    <form action="/verify" method="POST">
+      <input type="text" name="otp" maxlength="6" 
+             class="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-4 text-4xl text-center tracking-widest focus:outline-none focus:border-white"
+             placeholder="123456" required>
+
+      <button type="submit"
+              class="mt-6 w-full bg-white text-black font-semibold py-4 rounded-xl hover:bg-zinc-200 transition">
+        Verify & Continue
+      </button>
+    </form>
+
+    <a href="/" class="block text-center text-zinc-500 mt-6 text-sm hover:text-zinc-300">
+      ← Start over
+    </a>
+  </div>
+</body>
+</html>
